@@ -13,7 +13,7 @@ const toggleDetails = (id: string) => {
 
 onMounted(async () => {
   const res = await fetch(
-    "https://localhost:5000/get_harrisburg_breweries"
+    "https://142.93.52.97:5000/get_harrisburg_breweries"
   );
   const data = await res.json();
   breweries.value = data;
