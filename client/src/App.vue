@@ -13,7 +13,7 @@ const toggleDetails = (id: string) => {
 
 onMounted(async () => {
   const res = await fetch(
-    "http://142.93.52.97:3000/get_harrisburg_breweries"
+    "https://localhost:5000/get_harrisburg_breweries"
   );
   const data = await res.json();
   breweries.value = data;
@@ -40,6 +40,7 @@ onMounted(async () => {
 #app {
   padding-top: 30px;
   background-color: #fffbeb;
+  min-height: 100vh;
 }
 ul {
   list-style-type: none;

@@ -1,8 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors')
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
 const app = express();
 const port = 3000;
+
+const options = {
+  key: fs.readFileSync('./client-key.pem'),
+  cert: fs.readFileSync('./client-cert.pem')
+};
 
 require('dotenv').config();
 
@@ -32,6 +40,5 @@ app.get("/get_harrisburg_breweries", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+http.createServer(app).listen(3000);
+https.createServer(options, app).listen(5000);
